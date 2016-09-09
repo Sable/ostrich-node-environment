@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 var build = require(process.argv[2]);
+Math.random = require('ostrich-twister-prng').random;
 
 
 var args = process.argv.slice(3).map(function bash_to_javascript(a) {
