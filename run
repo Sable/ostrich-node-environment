@@ -1,27 +1,19 @@
 #!/usr/bin/env node
-var build = require(process.argv[2]);
-Math.random = require('ostrich-twister-prng').random;
+var shell = require('shelljs')
+var path = require('path')
 
+var environment = require('./environment.json')
+var runScript = path.join(__dirname, 'run.js')
 
-var args = process.argv.slice(3).map(function bash_to_javascript(a) {
-    var n = Number.parseInt(a);
-    if (n !== NaN) {
-        return n;
-    }
+var command = (environment['executable-path'] + ' ' +
+              environment['executable-options'].join(' ') + ' ' +
+              runScript + ' ' +
+              process.argv.slice(2).join(' '))
 
-    n = Number.parseFloat(a);
-    if (n !== NaN) {
-        return n;
-    }
-
-    return a;
-});
-
-try {
-    build.runner.apply(build, args);
-} catch (e) {
-    console.log(e);
-    process.exit(1);
+if (shell.exec(command).code !== 0) {
+  shell.exit(1)
+} else {
+  shell.exit(0)
 }
 
-process.exit(0);
+

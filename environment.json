@@ -1,10 +1,16 @@
 {
-	"type": "environment",
-	"short-name": "node",
-	"name": "Node.js",
-	"version": "v5.7.0",
-	"supported-languages": ["js"],
-	"supported-formats": ["text"],
-	"implementation-language": "x86",
-	"implementation-format": "binary"
+    "type": "environment",
+    "short-name": "node",
+    "name": "Node.js",
+    "version": "v5.7.0",
+    "supported-languages": ["js"],
+    "supported-formats": ["text"],
+    "implementation-language": "x86",
+    "implementation-format": "binary",
+    "executable-path": [
+        "node"
+    ],
+    "executable-options": [
+         "--max-old-space-size=4096"
+    ]
 }

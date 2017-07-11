@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Sable/ostrich-node-environment",
   "dependencies": {
-    "ostrich-twister-prng": "git://github.com/Sable/ostrich-twister-prng.js"
-  }   
+    "ostrich-twister-prng": "git://github.com/Sable/ostrich-twister-prng.js",
+    "shelljs": "^0.7.8"
+  }
 }
