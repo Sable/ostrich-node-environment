@@ -4,18 +4,21 @@ Math.random = require('ostrich-twister-prng').random;
 
 
 var args = process.argv.slice(3).map(function bash_to_javascript(a) {
-    var n = Number.parseInt(a);
+    var n = Number.parseFloat(a);
     if (!Number.isNaN(n)) {
         return n;
     }
 
-    n = Number.parseFloat(a);
+    var n = Number.parseInt(a);
     if (!Number.isNaN(n)) {
         return n;
     }
 
     return a;
 });
+
+console.error('arguments before conversion: ' + process.argv.slice(3))
+console.error('arguments after conversion: ' + args.join(','))
 
 try {
     build.runner.apply(build, args);
