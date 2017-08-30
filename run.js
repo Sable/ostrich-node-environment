@@ -5,12 +5,12 @@ Math.random = require('ostrich-twister-prng').random;
 
 var args = process.argv.slice(3).map(function bash_to_javascript(a) {
     var n = Number.parseInt(a);
-    if (n !== NaN) {
+    if (!Number.isNaN(n)) {
         return n;
     }
 
     n = Number.parseFloat(a);
-    if (n !== NaN) {
+    if (!Number.isNaN(n)) {
         return n;
     }
 
