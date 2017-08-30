@@ -17,9 +17,6 @@ var args = process.argv.slice(3).map(function bash_to_javascript(a) {
     return a;
 });
 
-console.error('arguments before conversion: ' + process.argv.slice(3))
-console.error('arguments after conversion: ' + args.join(','))
-
 try {
     build.runner.apply(build, args);
 } catch (e) {
